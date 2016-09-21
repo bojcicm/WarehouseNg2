@@ -1,0 +1,15 @@
+<div>
+    <h2>Aktivne narudzbe</h2>
+    <div class="inline-container" *ngFor="let order of orders">
+        <div class="left">
+            <ul>
+                <li>ID: {{order.id}}</li>
+                <li>Status: {{order.delivered ? "Dostavljeno" : "Nije dostavljeno"}}</li>
+                <li>Items: <span *ngFor="let item of order.items">{{item.name}}({{item.amount}}), </span></li>
+            </ul>
+        </div>
+        <div class="right">
+            <button (click)="onClick(order)">X</button>
+        </div>
+    </div>
+</div>

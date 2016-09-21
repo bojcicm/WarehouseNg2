@@ -1,0 +1,15 @@
+<div>
+    <h2>Kreiraj narudzbu</h2>
+    <p *ngIf="!items">Lista je prazna, molimo dodaj elemente na listu!</p>
+    <div class="inline-container" *ngFor="let item of items">
+        <div class="left">
+            <span>Item: {{item.name}}</span><br>
+            <span>Item: {{item.amount}}</span><br>
+        </div>
+        <div class="right">
+            <button (click)="removeItem(item)">X</button>
+        </div>
+    </div>
+    <button (click)="addItem()">Dodaj predmet</button>
+    <button *ngIf="!!items" (click)="saveList()">Spremi</button>
+</div>
