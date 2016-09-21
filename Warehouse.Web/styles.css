@@ -150,6 +150,8 @@ div.left{
 }
 div.right{
   float:right;
+}
+div.right.dowm{
   padding-top: 20px;
 }
 .inline-container{

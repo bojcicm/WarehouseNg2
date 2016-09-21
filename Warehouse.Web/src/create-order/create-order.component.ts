@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NewOrder} from '../order/newOrder';
+import {NewOrder, NewOrderItem} from '../order/newOrder';
 
 @Component({
     selector: 'create-order',
@@ -7,13 +7,32 @@ import {NewOrder} from '../order/newOrder';
 })
 
 export class CreateOrderComponent{
-    order: NewOrder[];
+    items: NewOrderItem[];
+    newOrderItem: NewOrderItem; 
 
-    addNewEntry(): void{
-        //dodaj prazni item u listu
+    constructor(){
+        this.newOrderItem = new NewOrderItem();
+        this.items = new Array<NewOrderItem>();
+    }
+
+    addItem(): void{
+        let newItem = new NewOrderItem();
+
+        newItem.name= this.newOrderItem.name;
+        newItem.amount = this.newOrderItem.amount;
+
+        this.items.push(newItem);
+
+        this.newOrderItem.amount = 0;
+        this.newOrderItem.name = "";
     }
 
     save(): void{
         //saveaj order i redirectaj na homepage
+    }
+
+    removeItem(item: NewOrderItem): void{
+        var indexOfOrder = this.items.indexOf(item);
+        this.items.splice(indexOfOrder, 1);
     }
 }

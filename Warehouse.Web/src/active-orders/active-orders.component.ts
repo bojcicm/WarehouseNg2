@@ -33,7 +33,6 @@ export class ActiveOrdersComponent{
     }
 
     onClick(order: Order): void{
-        //this.orderService.remove(order).then(order => {...})
         var indexOfOrder = this.orders.indexOf(order);
         this.orders.splice(indexOfOrder, 1);
     }

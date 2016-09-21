@@ -5,4 +5,9 @@ export class NewOrder {
 export class NewOrderItem{
     name: string;
     amount: number;
+
+    constructor(){
+      this.name = "";
+      this.amount = 0;
+    }
 }

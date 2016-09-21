@@ -1,15 +1,32 @@
 <div>
     <h2>Kreiraj narudzbu</h2>
-    <p *ngIf="!items">Lista je prazna, molimo dodaj elemente na listu!</p>
-    <div class="inline-container" *ngFor="let item of items">
-        <div class="left">
-            <span>Item: {{item.name}}</span><br>
-            <span>Item: {{item.amount}}</span><br>
-        </div>
-        <div class="right">
-            <button (click)="removeItem(item)">X</button>
+    <p *ngIf="items.length == 0">Lista je prazna, molimo dodaj elemente na listu!</p>
+    <div *ngIf="items.length > 0">
+        <div class="inline-container" *ngFor="let item of items">
+            <div class="left">
+                <span>Item: {{item.name}}</span><br>
+                <span>Item: {{item.amount}}</span><br>
+            </div>
+            <div class="right">
+                <button (click)="removeItem(item)">X</button>
+            </div>
         </div>
     </div>
-    <button (click)="addItem()">Dodaj predmet</button>
-    <button *ngIf="!!items" (click)="saveList()">Spremi</button>
+    <br>
+    <div class="inline-container">
+        <form>
+        <div class="left">
+            <input [(ngModel)]="newOrderItem.name" [ngModelOptions]="{standalone: true}" type="text" placeholder="Item name" />
+            <input [(ngModel)]="newOrderItem.amount" [ngModelOptions]="{standalone: true}" type="number" placeholder="Amount" />
+        </div>
+
+        <div class="right">
+            <button (click)="addItem()">Dodaj predmet</button>
+        </div>
+        </form>
+    </div>
+    <hr>
+    <div class="inline-container">
+        <button *ngIf="items.length > 0" (click)="saveList()">Spremi</button>
+    </div>
 </div>
