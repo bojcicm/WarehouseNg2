@@ -4,6 +4,7 @@
 # Ignore transpiled js files
 Warehouse.Web/src/**/*.js
 Warehouse.Web/src/**/*.map
+Warehouse.Api/bin
 node_modules
 .tmp
 .sass-cache
